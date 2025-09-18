@@ -186,6 +186,13 @@
             e.preventDefault();
         });
         
+        // Check if user came from the proper flow
+        if (!localStorage.getItem('6246_flow_completed_var1')) {
+            // If no flow completion flag, redirect back to landing
+            window.location.replace('index.html');
+            return;
+        }
+        
         // Track end page view (only on first render)
         if (!window.endPageViewTracked) {
             window.endPageViewTracked = true;

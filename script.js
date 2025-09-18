@@ -1,5 +1,12 @@
 // JavaScript for the landing page
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if user already completed the flow
+    if (localStorage.getItem('6246_flow_completed_var1')) {
+        // Redirect to thanks page immediately
+        window.location.replace('thanks.html');
+        return;
+    }
+    
     // Add smooth scrolling behavior
     document.documentElement.style.scrollBehavior = 'smooth';
     
@@ -20,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Track button click
             gtag('event', '6246_click_button_var1');
             ym(96171108, 'reachGoal', '6246_click_button_var1');
+            
+            // Mark flow as completed
+            localStorage.setItem('6246_flow_completed_var1', 'true');
             
             // Redirect to thanks page
             window.location.href = 'thanks.html';
